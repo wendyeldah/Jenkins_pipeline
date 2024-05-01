@@ -1,0 +1,88 @@
+
+pipeline {
+
+    agent any
+
+    environment {
+
+        DIRECTORY_PATH = 'C:\\Users\\nenic\\OneDrive\\Documents\\jenkins-code'
+
+        TESTING_ENVIRONMENT = 'test-env'
+
+        PRODUCTION_ENVIRONMENT = 'ruth'
+
+    }
+
+    stages {
+
+        stage('Build') {
+
+            steps {
+
+                echo 'Fetch the source code from the directory path specified by the environment variable.'
+
+                echo 'Compile the code and generate any necessary artifacts.'
+
+            }
+
+        }
+
+        stage('Test') {
+
+            steps {
+
+                echo 'Running unit tests.'
+
+                echo 'Running integration tests.'
+
+            }
+
+        }
+
+        stage('Code Quality Check') {
+
+            steps {
+
+                echo 'Check the quality of the code.'
+
+            }
+
+        }
+
+        stage('Deploy') {
+
+            steps {
+
+                echo 'Deploy the application to the testing environment specified by the environment variable.'
+
+            }
+
+        }
+
+        stage('Approval') {
+
+            steps {
+
+                script {
+
+                    sleep 10 // Sleep for 10 seconds to simulate manual approval
+
+                }
+
+            }
+
+        }
+
+        stage('Deploy to Production') {
+
+            steps {
+
+                echo 'Deploy the code to the production environment using the environment variable specifying the environment name.'
+
+            }
+
+        }
+
+    }
+
+}
